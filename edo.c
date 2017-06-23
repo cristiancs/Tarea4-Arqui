@@ -5,8 +5,8 @@ float pendiente(float x,float y){
 	return -2 * x * y * y;
 }
 
-void euler_mejorado(){
-	float xStep = 0.025;
+void euler_mejorado(float xStep){
+	//float xStep = 0.025;
 	float xMax = 2;
 	float x = 0;
 	float y = 1;
@@ -24,13 +24,16 @@ void euler_mejorado(){
 		x = xNext;
 		y = yPrimaNext;
 	}
-	printf("%f\n",y); // Yn final
+	printf("Delta T : %f\nYn      : %f\n",xStep,y); // Yn final
 
 }
 
 
 int main(){
-	euler_mejorado();
+	float step;
+	printf("Ingrese Delta T: ");
+	scanf("%f", &step);
+	euler_mejorado(step);
 	return 0;
 }
 
