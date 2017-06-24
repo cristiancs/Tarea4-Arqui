@@ -65,7 +65,7 @@ EULERMEJORADO:
 PENDIENTE:
 	
 	li.s $f9, -2.0
-	mul.s $f9, $f9, $f17
+	mul.s $f9, $f9, $f16
 	mul.s $f9, $f9, $f17
 	mul.s $f9, $f9, $f17
 	add.s $f16, $f9, $f31
