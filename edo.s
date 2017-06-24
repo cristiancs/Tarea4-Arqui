@@ -57,9 +57,9 @@ main:
 
 # Funcion principal
 EULERMEJORADO:
-	li.s $f13, 2.0		#xMax
-	li.s $f14, 0.0		# x
-	li.s $f15, 1.0		# y
+	li.s $f13, 2.0				#xMax
+	li.s $f14, 0.0				# x
+	li.s $f15, 1.0				# y
 	j LOOP
 
 PENDIENTE:
@@ -75,13 +75,13 @@ LOOP:
 	add.s $f16, $f14, $f31
 	add.s $f17, $f15, $f31
 
-	sw $ra, -4($sp)			# Guardar ra
+	sw $ra, -4($sp)				# Guardar ra
 	addi $sp, $sp, -4
 
 	jal PENDIENTE
 
 
-	add.s $f19, $f31, $f16 	# float mk = pendiente(x,y);
+	add.s $f19, $f31, $f16 		# float mk = pendiente(x,y);
 	add.s $f20, $f31, $f19		# clonar mk
 
 	mul.s $f19, $f19, $f12

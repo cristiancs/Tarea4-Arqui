@@ -1,11 +1,8 @@
 #import <stdio.h>
 
 float pendiente(float x,float y){
-	float menos2 = -2;
-	float suma = menos2 * x;
-	suma = suma * y;
-	suma = suma * y;
-	return suma;
+	
+	return -2 * x * y * y;
 }
 
 float euler_mejorado(float xStep){
@@ -15,18 +12,12 @@ float euler_mejorado(float xStep){
 	while(x<=xMax){
 
 		float mk = pendiente(x,y);
-		float yPrimaNext = mk*xStep;
-		yPrimaNext = yPrimaNext+y;
-
+		float yPrimaNext = y + mk*xStep;
 		float xNext = x + xStep;
-
 		float nk = pendiente(xNext, yPrimaNext);
 		
-		float yNext = mk + nk;
-		yNext = yNext*xStep;
-		yNext = yNext/2;
-		yNext = yNext + y;
-
+		float yNext = y + ((mk + nk) * xStep)/2 ;
+		
 		x = xNext;
 		y = yPrimaNext;
 	}
@@ -35,8 +26,7 @@ float euler_mejorado(float xStep){
 
 
 int main(){
-	float step;
-	float y;
+	float step,y;
 	printf("Ingrese Delta T: ");
 	scanf("%f", &step);
 	y = euler_mejorado(step);
